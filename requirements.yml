@@ -1,0 +1,25 @@
+---
+requirements:
+####
+####  3rd party modules (theirs)
+####
+  - src: https://github.com/InnovateUKGitHub/ansible-selinuxaudit.git
+    version: fix_installed_task_with_items_for_2.2
+    name: theirs/mstefany.auditd
+
+  - src: https://github.com/dev-sec/ansible-ssh-hardening.git
+    version: 7f9245a
+    name: theirs/dev-sec.ssh-hardening
+
+  - src: https://github.com/dev-sec/ansible-os-hardening.git
+    version: 129f1a2
+    name: theirs/dev-sec.os-hardening
+
+  - src: https://github.com/tschifftner/ansible-role-autoupdate.git
+    version: 555251d
+    name: theirs/tschifftner.autoupdate
+
+# ####
+# ####  Home grown modules (ours)
+# ####
+# <currently embeded>

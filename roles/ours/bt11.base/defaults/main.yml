@@ -1,0 +1,3 @@
+---
+# defaults file for bt11.base
+bt11_base_schedule_ansible_cronjob: false

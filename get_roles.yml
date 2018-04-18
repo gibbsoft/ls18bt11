@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  become: false
+  gather_facts: false
+  vars:
+    library_dir: roles
+  vars_files:
+    - requirements.yml
+    - "vars/common.yml"
+  tasks:
+    - name: ensure git is installed
+      # use become: true on linux, but not on your mac
+      package:
+        name: git
+        state: latest
+    - name: checkout all the required ansible roles
+      git:
+        repo: "{{ item.src }}"
+        dest: "{{ library_dir }}/{{ item.name }}"
+        version: "{{ item.version }}"
+        update: true
+      with_items: "{{ requirements }}"

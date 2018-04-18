@@ -1,0 +1,21 @@
+---
+# tasks file for bt11.base
+
+- name: Include OS specific definitions
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Schedule install of security updates
+  cron:
+    name: "Install security updates (only)"
+    minute: "55"
+    hour: "22"
+    job: /bin/yum -y update --security >>/var/log/yum-security-updates.log 2>&1
+    state: present
+  become: true
+
+- name: Schedule ansible runs via cron
+  cron:
+    name: "Run Ansible"
+    minute: "*/30"
+    job: "/usr/local/sbin/run_ansible.sh -s >/dev/null 2>&1"
+  when: bt11_base_schedule_ansible_cronjob

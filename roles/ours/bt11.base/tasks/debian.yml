@@ -1,0 +1,12 @@
+---
+# tasks file for bt11.base
+
+- name: Include OS specific definitions
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Schedule ansible runs via cron
+  cron:
+    name: "Run Ansible"
+    minute: "*/30"
+    job: "/usr/local/sbin/run_ansible.sh -s >/dev/null 2>&1"
+  when: bt11_base_schedule_ansible_cronjob
