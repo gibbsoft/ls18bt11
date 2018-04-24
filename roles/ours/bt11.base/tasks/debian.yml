@@ -10,3 +10,11 @@
     minute: "*/30"
     job: "/usr/local/sbin/run_ansible.sh -s >/dev/null 2>&1"
   when: bt11_base_schedule_ansible_cronjob
+
+- name: Install security tools
+  package:
+    pkg: "{{ item }}"
+    state: latest
+  with_items:
+    - lynis
+    - rkhunter

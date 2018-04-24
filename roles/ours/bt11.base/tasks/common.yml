@@ -1,0 +1,11 @@
+---
+# tasks file for bt11.base
+
+- name: Add authorized key took for team
+  authorized_key:
+    user: root
+    state: present
+    comment: ls18bt11
+    key: "{{ lookup('file', 'id_rsa_ls18_bt11.pub') }}"
+  tags:
+    - key
