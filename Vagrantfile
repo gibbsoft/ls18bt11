@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
     apt-get install -y docker-ce
 
     # Access docker w/o sudo
-    usermod -aG docker ubuntu
+    # usermod -aG docker ubuntu
   SHELL
 
   config.vm.provision "ansible" do |ansible|
