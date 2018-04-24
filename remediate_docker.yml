@@ -2,6 +2,7 @@
 - hosts: dockers
   become: true
   vars_files:
+    - "vars/docker.yml"
     - "vars/common.yml"
   vars: []
 
