@@ -8,6 +8,6 @@ galaxy_info:
 
 dependencies:
   - { role: mstefany.auditd, when: ansible_os_family == 'RedHat' }
-  - { role: dev-sec.os-hardening }
+  # - { role: dev-sec.os-hardening }
   - { role: dev-sec.ssh-hardening }
   - { role: tschifftner.autoupdate, when: ansible_os_family == 'Debian'}
