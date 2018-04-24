@@ -48,6 +48,12 @@ Vagrant.configure("2") do |config|
     # Install docker-ce
     apt-get install -y docker-ce
 
+    # Install docker-compose
+    sudo curl -fsSL https://github.com/docker/compose/releases/download/1.20.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+    /sbin/sysctl -w net.ipv4.conf.all.forwarding=1
+    echo net.ipv4.conf.all.forwarding=1 >/etc/sysctl.d/20-net-ipv4-forwarding.conf
+
     # Access docker w/o sudo
     # usermod -aG docker ubuntu
   SHELL
