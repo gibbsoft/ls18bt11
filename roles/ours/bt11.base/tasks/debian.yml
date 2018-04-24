@@ -18,3 +18,7 @@
   with_items:
     - lynis
     - rkhunter
+
+- name: Configure security sources for apt
+  shell: grep security /etc/apt/sources.list >/etc/apt/security.sources.list
+  creates: /etc/apt/security.sources.list
