@@ -14,8 +14,8 @@ Vagrant.configure("2") do |config|
   config.vm.box = "https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-vagrant.box"
   config.vm.synced_folder ".", "/vagrant/"
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = "1024"
     vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
+    vb.memory = "2048"
   end
 
   config.vm.provision "shell", inline: <<~SHELL
