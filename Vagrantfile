@@ -9,6 +9,8 @@ Vagrant.configure("2") do |config|
   end
 
   # config.vm.box = "ubuntu/xenial64"
+  config.vm.network :forwarded_port, guest: 443, host: 8443 # for testing one of the containers
+  config.vm.network :forwarded_port, guest: 80, host: 8080 # for testing one of the containers
   config.vm.box = "https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-vagrant.box"
   config.vm.synced_folder ".", "/vagrant/"
   config.vm.provider "virtualbox" do |vb|
