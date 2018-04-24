@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant/"
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "1024"
+    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
   end
 
   config.vm.provision "shell", inline: <<~SHELL
