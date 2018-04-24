@@ -54,6 +54,8 @@ $ vagrant destroy
 
 #### Running against infrastructure
 
+Running the playbook:
+
 1. Firstly update the inventory file `hosts` with the required nodes
 
 2. Ensure you have the private key in `~/.ssh/id_rsa_ls18bt11`
@@ -62,4 +64,10 @@ $ vagrant destroy
 
 ```bash
 $ ansible-playbook remediate_docker.yml
+```
+
+Example adhoc command:
+
+```bash
+$ ansible dockers -a "docker-compose --version" >backups/txt/docker_compose_version.txt
 ```
